@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>Narrow Jumbotron Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/css/bootstrap.css}" href="../static/css/bootstrap.css" rel="stylesheet">
+    <script th:src="@{/js/jquery.min.js}" src="../static/js/jquery.min.js"></script>
+    <script th:src="@{/js/bootstrap.js}"  src="../static/js/bootstrap.js"></script>
+    <!-- Custom styles for this template -->
+<!--     <link href="narrow-jumbotron.css" rel="stylesheet"> -->
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills float-right">
+            <li class="nav-item">
+              <a class="nav-link active" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Casa </font></font><span class="sr-only"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">(Actual)</font></font></span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Acerca de</font></font></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Contacto</font></font></a>
+            </li>
+          </ul>
+        </nav> 
+        <h3 class="text-muted"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nombre del proyecto</font></font></h3>
+      </div>
+ 
+ <div class ="row">     
+<div class="col-md-3" th:each="post : ${posts}">
+    <div class="card" style="width: 18rem;">
+  <img th:src="${post.urlImg}"   class="card-img-top" alt="...">   
+  <div class="card-body">
+    <h5 class="card-title" th:text="${post.titulo}">Card title</h5>
+    <p class="card-text" th:text="${post.descripcion}">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+</div>
+
+</div>
+      <div class="row marketing">
+        <div class="col-lg-6">
+          <h4><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Subtítulo</font></font></h4>
+          <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Donec id elit non mi porta gravida en eget metus. </font><font style="vertical-align: inherit;">Mecenas faucibus mollis interdum.</font></font></p>
+
+          <h4><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Subtítulo</font></font></h4>
+          <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Morbi leo risus, porta ac consectetur ac, vestibulum en eros. </font><font style="vertical-align: inherit;">Cras mattis consectetur purus sit amet fermentum.</font></font></p>
+
+          <h4><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Subtítulo</font></font></h4>
+          <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Mecenas sed diam eget risus varius blandit sit amet non magna.</font></font></p>
+        </div>
+
+        <div class="col-lg-6">
+          <h4><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Subtítulo</font></font></h4>
+          <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Donec id elit non mi porta gravida en eget metus. </font><font style="vertical-align: inherit;">Mecenas faucibus mollis interdum.</font></font></p>
+
+          <h4><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Subtítulo</font></font></h4>
+          <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Morbi leo risus, porta ac consectetur ac, vestibulum en eros. </font><font style="vertical-align: inherit;">Cras mattis consectetur purus sit amet fermentum.</font></font></p>
+
+          <h4><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Subtítulo</font></font></h4>
+          <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Mecenas sed diam eget risus varius blandit sit amet non magna.</font></font></p>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">© Compañía 2017</font></font></p>
+      </footer>
+
+    </div> <!-- /container -->
+  
+
+</body>
+</html>
