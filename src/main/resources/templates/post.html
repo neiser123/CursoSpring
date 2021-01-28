@@ -37,17 +37,15 @@
       </div>
  
  <div class ="row">     
-<div class="col-md-3" th:each="post : ${posts}">
-    <div class="card" style="width: 18rem;">
-  <img th:src="${post.urlImg}"   class="card-img-top" alt="...">   
-  <div class="card-body">
-    <h5 class="card-title" th:text="${post.titulo}">Card title</h5>
-    <p class="card-text" th:text="${post.descripcion}">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a th:href="@{/home/privado?id=} + ${post.id}" class="btn btn-primary">Go somewhere</a>
-  </div>
+<div class="jumbotron">
+  <h1 class="display-4" th:text="${pos.titulo}">Hello, world!</h1>
+  <p class="lead" th:text="${pos.descripcion}">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+  <hr class="my-4" th:text="${pos.fecha}">
+  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+  </p>
 </div>
-</div>
-
 </div>
       <div class="row marketing">
         <div class="col-lg-6">
@@ -78,7 +76,9 @@
       </footer>
 
     </div> <!-- /container -->
-  
+<footer>
+<p> cursoSpring</p>
+</footer>  
 
 </body>
 </html>
