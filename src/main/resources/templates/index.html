@@ -43,7 +43,9 @@
   <div class="card-body">
     <h5 class="card-title" th:text="${post.titulo}">Card title</h5>
     <p class="card-text" th:text="${post.descripcion}">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a th:href="@{/home/privado?id=} + ${post.id}" class="btn btn-primary">Go somewhere</a>
+<!--     <a th:href="@{/home/privado?id=} + ${post.id}" class="btn btn-primary">Go somewhere</a> -->
+    <a th:href="@{/home/paginaPost/} + ${post.id}" class="btn btn-primary">Go somewhere</a>
+
   </div>
 </div>
 </div>
