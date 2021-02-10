@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,8 +16,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.cursospring.core.component.PostComponent;
+import com.cursospring.core.model.Post;
+
 import configuration.Pages;
-import model.Post;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,28 +30,12 @@ import org.springframework.ui.Model;
 public class controllerBasic {
 	
 	
- public	List<Post> getPost(){
-	
-	 ArrayList<Post> post =new ArrayList<Post>();
-	 
-		post.add(new Post(1,
-				"Desarrollo web es un término que define la creación de sitios web para Internet o una intranet",
-				"http://localhost:8080/img/ash.jpg", new Date(),"DESARROLLO WEB 1")); 
-		post.add(new Post(2,
-				"Desarrollo web es un término que define la creación de sitios web para Internet o una intranet",
-				"http://localhost:8080/img/3.jpg", new Date(),"DESARROLLO WEB 2")); 
-		post.add(new Post(3,
-				"Desarrollo web es un término que define la creación de sitios web para Internet o una intranet",
-				"http://localhost:8080/img/ash.jpg", new Date(),"DESARROLLO WEB 3")); 
-		post.add(new Post(4,
-				"Desarrollo web es un término que define la creación de sitios web para Internet o una intranet",
-				"http://localhost:8080/img/leluch.jpg", new Date(),"DESARROLLO WEB 4")); 
-	return post;
-}
+@Autowired
+PostComponent _postcomponent;
 	
 	@GetMapping(path = {"/post","/"})
 	public String saludar(Model model) { //maneja el model de la clase post
-		model.addAttribute("posts",this.getPost());
+		model.addAttribute("posts",this._postcomponent.getPost());
 		
 		return "index";
 	}
@@ -56,7 +43,7 @@ public class controllerBasic {
 	@GetMapping(path = "/public")
 	public ModelAndView post() { // maneja el modelo + la vista
 		ModelAndView modelAndView = new ModelAndView(Pages.HOME);
-		modelAndView.addObject("posts",this.getPost());
+		modelAndView.addObject("posts",this._postcomponent.getPost());
 		return modelAndView;
 	}
 	
@@ -66,7 +53,7 @@ public class controllerBasic {
 			@RequestParam(defaultValue = "1",name = "id",required = false) int id
 			) {
 		ModelAndView modelAndView = new ModelAndView(Pages.POST);
-		List<Post> postFilter =this.getPost().stream().filter((post) ->{
+		List<Post> postFilter =this._postcomponent.getPost().stream().filter((post) ->{
 			return post.getId() == id;
 		}).collect(Collectors.toList());
 		modelAndView.addObject("pos", postFilter.get(0));
@@ -78,7 +65,7 @@ public class controllerBasic {
 			@PathVariable(required = true,name="id") int id
 			) {
 		ModelAndView modelAndView = new ModelAndView(Pages.POST);
-		List<Post> postFilter =this.getPost().stream().filter((post) ->{
+		List<Post> postFilter =this._postcomponent.getPost().stream().filter((post) ->{
 			return post.getId() == id;
 		}).collect(Collectors.toList());
 		modelAndView.addObject("pos", postFilter.get(0));
@@ -94,7 +81,7 @@ public class controllerBasic {
 	@PostMapping("/addNewPost")
 	public String addNewPost(Post post, Model model) {
 		//obtenemos los post que estan quemados
-		List<Post> list = this.getPost();
+		List<Post> list = this._postcomponent.getPost();
 		//agregamos el nuevo post q llega del formulario
 		list.add(post);
 		model.addAttribute("posts",list);

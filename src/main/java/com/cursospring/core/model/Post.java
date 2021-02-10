@@ -1,4 +1,4 @@
-package model;
+package com.cursospring.core.model;
 
 import java.util.Date;
 
