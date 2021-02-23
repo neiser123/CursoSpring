@@ -2,12 +2,14 @@ package com.cursospring.core.services.implement;
 
 import java.util.List;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 import com.cursospring.core.model.Post;
 import com.cursospring.core.services.PostService;
 
 @Service("implementServicio")
+@Scope("singleton")
 public class PostServiceImp implements PostService {
 
 	@Override
